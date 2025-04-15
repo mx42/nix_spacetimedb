@@ -1,10 +1,13 @@
 {
-  stdenv,
-  lib,
-  fetchurl,
-  autoPatchelfHook,
-  libgcc,
+  pkgs ? import <nixpkgs> {},
 }:
+let
+  stdenv = pkgs.stdenv;
+  lib = pkgs.lib;
+  fetchurl = pkgs.fetchurl;
+  autoPatchelfHook = pkgs.autoPatchelfHook;
+  libgcc = pkgs.libgcc;
+in 
 stdenv.mkDerivation {
   pname = "spacetimedb";
   version = "1.0.1";
